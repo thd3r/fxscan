@@ -81,7 +81,7 @@ if __name__ == "__main__":
        "-t",
        "--timeout",
        type=float,
-       help="timeout until the warning appears"
+       help="timeout until xss is triggered"
    )
    parser.add_argument(
        "-op",
