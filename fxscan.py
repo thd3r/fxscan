@@ -4,10 +4,9 @@ import os
 import sys
 import time
 import argparse
+
 from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor
-
-# External library
 from urllib.parse import urlparse, urlunparse, parse_qs
 
 from selenium import webdriver
@@ -120,7 +119,7 @@ class Scanner:
         if self.args.mode == "gui":
             return None
         if self.args.mode == "cli":
-            options = webdriver.ChromeOptions() or webdriver.FirefoxOptions()
+            options = webdriver.ChromeOptions()
             options.add_argument("--headless")
             options.add_argument("--no-sandbox")
             options.add_argument("--disable-gpu")
