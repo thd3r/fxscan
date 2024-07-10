@@ -48,14 +48,14 @@ class Options:
             help="the payload used for scanner"
         )
         guiparser.add_argument(
-            "-c",
+            "-t",
             "--threads",
             type=int,
             default=50,
             help="number of concurrent threads (default: 50)"
         )
         guiparser.add_argument(
-            "-t",
+            "-T",
             "--timeout",
             type=float,
             help="timeout until xss is triggered"
@@ -77,14 +77,14 @@ class Options:
             help="the payload used for scanner"
         )
         cliparser.add_argument(
-            "-c",
+            "-t",
             "--threads",
             type=int,
             default=50,
             help="number of concurrent threads (default: 50)"
         )
         cliparser.add_argument(
-            "-t",
+            "-T",
             "--timeout",
             type=float,
             help="timeout until xss is triggered"
@@ -156,6 +156,7 @@ class Scanner:
                 print(f"""\033[32m
 Info: fxscan identified the following injection points
 Time: {str(datetime.now())}
+Weakness: Cross Site Scripting (XSS)
 Parameter: {", ".join(param for param in params.keys())}
     Status: Vulnerable to xss
     Target: {url}
@@ -171,6 +172,7 @@ Parameter: {", ".join(param for param in params.keys())}
                 print(f"""\033[33m
 Info: fxscan identified the following unexpected injection points
 Time: {str(datetime.now())}
+Weakness: Cross Site Scripting (XSS)
 Parameter: {", ".join(param for param in params.keys())}
     Status: Possible unexpected xss
     Target: {url}
@@ -199,7 +201,7 @@ class Fxss(Options, Scanner):
 
     @property
     def version(self):
-        return "v0.1"
+        return "v0.2"
 
     @property
     def print_banner(self):
