@@ -201,7 +201,7 @@ class Fxss(Options, Scanner):
 
     @property
     def version(self):
-        return "v0.1"
+        return "v0.2"
 
     @property
     def print_banner(self):
