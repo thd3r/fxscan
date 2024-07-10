@@ -106,7 +106,7 @@ class Scanner:
 
     @property
     def payload(self):
-        return self.args.payload.split() if not os.path.isfile(self.args.payload) else open(self.args.payload, "r").readlines()
+        return self.args.payload.splitlines() if not os.path.isfile(self.args.payload) else open(self.args.payload, "r").read().splitlines()
     
     @property
     def timeout(self):
